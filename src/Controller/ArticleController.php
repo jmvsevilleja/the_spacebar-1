@@ -22,7 +22,7 @@ class ArticleController extends AbstractController
     {
         return new Response('OMG!');
     }
-
+ 
     /**
      * @Route("/news/{slug}")
      */
