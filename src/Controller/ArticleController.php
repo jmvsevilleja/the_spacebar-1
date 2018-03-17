@@ -30,7 +30,7 @@ class ArticleController extends AbstractController
         ];
 
         $articleContent = <<<EOF
-        
+
 Spicy **jalapeno bacon** ipsum dolor amet veniam shank in dolore. Ham hock nisi landjaeger cow,
 lorem proident beef [ribs](https://nu.nl) aute enim veniam ut cillum pork chuck picanha. Dolore reprehenderit
 labore minim pork belly spare ribs cupim short loin in. Elit exercitation eiusmod dolore cow
@@ -42,7 +42,6 @@ capicola biltong frankfurter boudin cupim officia. Exercitation fugiat consectet
 picanha shank et filet mignon pork belly ut ullamco. Irure velit turducken ground round doner incididunt
 occaecat lorem meatball prosciutto quis strip steak.
 
-        
 EOF;
 
         $articleContent = $markdownHelper->parse($articleContent);
