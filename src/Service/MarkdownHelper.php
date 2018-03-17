@@ -18,10 +18,16 @@ class MarkdownHelper
     private $markdown;
     private $logger;
 
-    public function __construct(AdapterInterface $cache, MarkdownInterface $markdown, LoggerInterface $markdownLogger) {
+    /**
+     * @var bool
+     */
+    private $isDebug;
+
+    public function __construct(AdapterInterface $cache, MarkdownInterface $markdown, LoggerInterface $markdownLogger, bool $isDebug) {
         $this->cache = $cache;
         $this->markdown = $markdown;
         $this->logger = $markdownLogger;
+        $this->isDebug = $isDebug;
     }
 
     public function parse(string $source): string
@@ -29,6 +35,12 @@ class MarkdownHelper
         if (stripos($source, 'bacon') !== false) {
             $this->logger->info('XXX They are talking about bacon again!');
         }
+
+        if ($this->isDebug) {
+            return $this->markdown->transform($source);
+        }
+
+        dump($this->cache); die();
 
         $item = $this->cache->getItem('markdown_' . md5($source));
 
